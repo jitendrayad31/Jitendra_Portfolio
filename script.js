@@ -1,13 +1,13 @@
-// toggle icon navbar
+// Toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
-menuIcon.oneclick = () => {
+menuIcon.onclick = () => {
   menuIcon.classList.toggle('bx-x');
   navbar.classList.toggle('active');
 };
 
-// scroll section ovtive link
+// Scroll section active link
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
@@ -16,26 +16,26 @@ window.onscroll = () => {
     let top = window.scrollY;
     let offset = sec.offsetTop - 150;
     let height = sec.offsetHeight;
-    let id = sec.getAttribute("id");
+    let id = sec.getAttribute('id');
 
     if (top >= offset && top < offset + height) {
-      navLinks.forEach(links => {
-        links.classList.remove('active');
-        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        document.querySelector(`header nav a[href*=${id}]`).classList.add('active');
       });
-    };
+    }
   });
-  // sticky navbar
-  let header = document.querySelector('header');
 
+  // Sticky navbar
+  let header = document.querySelector('header');
   header.classList.toggle('sticky', window.scrollY > 100);
 
-  // remove toggle icon and navbar when click when click navbar link (scroll)
+  // Remove toggle icon and navbar when clicking navbar link (scroll)
   menuIcon.classList.remove('bx-x');
   navbar.classList.remove('active');
 };
 
-// scroll reveal
+// Scroll reveal
 ScrollReveal({
   // reset: true,
   distance: '80px',
@@ -48,11 +48,11 @@ ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact 
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
-// typed js 
- const typed = new Typed('.multiple-text', {
-    strings: ['Frontend Developer','Freelancer', 'Problem Solver' ],
-    typeSpeed:100,
-    BackSpeed:100,
-    backDelay:1000,
-    loop:true
- });
+// Typed.js
+const typed = new Typed('.multiple-text', {
+  strings: ['Frontend Developer', 'Freelancer', 'Problem Solver'],
+  typeSpeed: 100,
+  backSpeed: 100,
+  backDelay: 1000,
+  loop: true
+});
